@@ -1,0 +1,47 @@
+
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h1>Invoice & Payment Chaser</h1>
+
+    <p>Welcome back! Please login to your account.</p>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+
+      <label>Email Address</label>
+
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Enter your email"
+        required
+        email
+      >
+
+      <label>Password</label>
+
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Enter your password"
+        required
+      >
+
+      <p class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <button type="submit" [disabled]="loginForm.invalid || isLoading">
+
+        {{ isLoading ? 'Logging in...' : 'Login' }}
+
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
